@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sql.board.select">
+	<select id="selectBoardList" resultType="BoardDto">
+		SELECT 
+			`article_id`
+		    , `title`
+		    , `content`
+		    , `name`
+		    , `insert_date`
+		    , FROM_UNIXTIME(`insert_date`, "%Y-%m-%d") AS insert_date_dt
+		    , `ipaddr`
+		    , `file_name`
+		    , `file_size`
+		FROM `board`
+		<where>
+		<if test="articleId != null and articleId != ''">
+		AND article_id = #{articleId}
+		</if>
+		</where>
+	</select>
+	
+	<select id="selectArticle" resultType="BoardDto" parameterType="Integer">
+		SELECT 
+			`article_id`
+		    , `title`
+		    , `content`
+		    , `name`
+		    , `insert_date`
+		    , FROM_UNIXTIME(`insert_date`, "%Y-%m-%d") AS insert_date_dt
+		    , `ipaddr`
+		    , `file_name`
+		    , `file_size`
+		FROM `board`
+		<where>
+		AND article_id = #{articleId}
+		</where>
+	</select>
+</mapper>
