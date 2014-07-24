@@ -35,12 +35,12 @@ public class BoardController {
 		List<BoardDto> boardList = boardService.getBoardList();
 		model.addAttribute("boardList", boardList);
 		
-		return "bbs/boardList";
+		return "board/boardList";
 	}
 	
 	@RequestMapping(value="/bbs/write.do")
 	public String loadWrite(Model model) throws Exception {
-		return "bbs/boardWrite";
+		return "board/boardWrite";
 	}
 	
 	@RequestMapping(value="/bbs/{articleId}/mod.do")
@@ -51,7 +51,7 @@ public class BoardController {
 		
 		model.addAttribute("articleInfo", articleInfo);
 		
-		return "bbs/boardModify";
+		return "board/boardModify";
 	}
 	
 	@RequestMapping(value="/bbs/write.json", method=RequestMethod.POST)
@@ -74,7 +74,7 @@ public class BoardController {
 		
 		model.addAttribute("articleInfo", articleInfo);
 		model.addAttribute("isFile", isFile);
-		return "bbs/boardDetail";
+		return "board/boardDetail";
 	}
 	
 	@RequestMapping(value="/bbs/delete.json", method=RequestMethod.POST)

@@ -39,7 +39,7 @@
 			<td>${boardRow.insertDateDt }</td>
 			<td>
 				<c:if test="${boardRow.fileSize > 0 }">
-					<span class="glyphicon glyphicon-save"></span>
+					O
 				</c:if>
 			</td>
 		</tr>

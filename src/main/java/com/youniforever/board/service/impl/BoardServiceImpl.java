@@ -43,7 +43,7 @@ public class BoardServiceImpl implements BoardService {
 			articleId = boardDto.getArticleId();
 		}
 		
-		if ( boardDto.getFile() != null ) {
+		if ( boardDto.getFile() != null && (int) boardDto.getFile().getSize() > 0 ) {
 			moveUploadFile(boardDto.getFile(), articleId);
 		}
 		

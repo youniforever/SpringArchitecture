@@ -44,7 +44,7 @@ articleId = "${articleInfo.articleId}";
 		<div class="col-sm-10">
 			<p class="form-control-static">
 			<c:choose>
-				<c:when test="${isFile != null and isFile != ''}">
+				<c:when test="${isFile != null and isFile != '' and articleInfo.fileSize > 0}">
 					<a href="/bbs/${articleInfo.articleId }/download">${articleInfo.fileName } (<fmt:formatNumber>${articleInfo.fileSize }</fmt:formatNumber> bytes)</a>
 				</c:when>
 				<c:otherwise>

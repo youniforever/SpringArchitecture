@@ -1,5 +1,7 @@
 package com.youniforever.login.dto;
 
+import java.io.UnsupportedEncodingException;
+
 import org.apache.ibatis.type.Alias;
 
 @Alias("LoginSessionDto")
@@ -18,7 +20,7 @@ public class LoginSessionDto {
 		this.userId = userId;
 	}
 
-	public String getUserName() {
+	public String getUserName() throws UnsupportedEncodingException {
 		return userName;
 	}
 
