@@ -54,31 +54,6 @@
 			<version>${spring-version}</version>
 		</dependency>
 
-
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
-		</dependency>
-
-		<!-- AspectJ -->
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>${org.aspectj-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>${org.aspectj-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>2.2</version>
-		</dependency>
-
-
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -155,38 +130,70 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
+		
+		
+		
+		<!-- Apache Log4j 1.2 -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
 
-		<!-- tomcat jdbc -->
+		<!-- AspectJ -->
+		<dependency><!-- The runtime needed to execute a program using AspectJ -->
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>
+		<dependency><!-- The AspectJ weaver introduces advices to java classes -->
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>
+		<dependency><!-- Code generation library with shaded ASM dependecies -->
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>
+		
+		<!-- HttpComponents Client (base module) -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+		<!-- Tomcat JDBC Pool Package -->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jdbc</artifactId>
 			<version>7.0.37</version>
 		</dependency>
 
-		<dependency>
+		<!-- Mybatis -->
+		<dependency><!-- The MyBatis data mapper framework -->
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>${org.mybatis.version}</version>
 		</dependency>
-
-		<dependency>
+		<dependency><!-- An easy-to-use Spring3 bridge for MyBatis sql mapping framework. -->
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>${org.mybatis.spring.version}</version>
 		</dependency>
 
 		<!-- Jackson -->
-		<dependency>
+		<dependency><!-- Core Jackson abstractions, basic JSON streaming API implementation -->
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
 			<version>2.2.2</version>
 		</dependency>
-		<dependency>
+		<dependency><!-- Data Mapper package is a high-performance data binding package built on Jackson JSON processor -->
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.2</version>
 		</dependency>
-		<!-- // Jackson -->
 
 		<!-- Apache Commons file upload -->
 		<dependency>
@@ -200,7 +207,68 @@
 			<artifactId>commons-io</artifactId>
 			<version>1.3.2</version>
 		</dependency>
+
+		<!-- Apache POI - Java API To Access Microsoft Format Files -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.7</version>
+		</dependency>
+
+		<!-- Java library for transforming beans, maps, collections, java arrays and XML to JSON. -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk13</classifier>
+		</dependency>
+		
+		<!-- A simple Java toolkit for JSON -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<!-- Google Gson library -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+
+		<!-- Apache Commons Compress software defines an API for working with compression and archive formats.
+			These include: bzip2, gzip, pack200, xz and ar, cpio, jar, tar, zip, dump. -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+
+		<!-- The Commons IO library -->
+		<!-- contains utility classes, stream implementations, file filters, file 
+			comparators, endian transformation classes, and much more -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<!-- The HttpClient component supports the client-side of RFC 1945 (HTTP/1.0) 
+			and RFC 2616 (HTTP/1.1)
+			, several related specifications (RFC 2109 (Cookies) , RFC 2617 (HTTP 
+			Authentication) , etc.),
+			and provides a framework by which new request types (methods) or HTTP 
+			extensions can be created easily. -->
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
 	</dependencies>
+	
+	
+	
 	<build>
 		<plugins>
 			<plugin>
