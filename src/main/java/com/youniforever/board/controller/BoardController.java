@@ -38,6 +38,15 @@ public class BoardController {
 		return "board/boardList";
 	}
 	
+	@RequestMapping(value="/bbs/list.json")
+	public String loadListJson(HttpServletRequest request, Model model) throws Exception {
+		List<BoardDto> boardList = boardService.getBoardList();
+		
+		messageSetter.message0000(model, boardList);
+		
+		return "jsonViewer";
+	}
+	
 	@RequestMapping(value="/bbs/write.do")
 	public String loadWrite(Model model) throws Exception {
 		return "board/boardWrite";
@@ -100,5 +109,10 @@ public class BoardController {
 		model.addAttribute("originalFileName", articleInfo.getFileName());
 		model.addAttribute("downloadFile", new File(uploadDir + "/" + articleId));
 		return "download";
+	}
+	
+	@RequestMapping(value="/bbs/test", method=RequestMethod.GET)
+	public String loadAngualrJsTest() throws Exception {
+		return "board/boardTest";
 	}
 }
