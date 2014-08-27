@@ -11,6 +11,14 @@
 <!-- 
 <script src="/js/board/boardList.js"></script>
 -->
+<style type="text/css">
+.disabled {
+	color: #999;
+	background-color: #fff;
+	border-color: #ddd;
+	cursor: not-allowed;
+}
+</style>
 
 
 <div ng-app="boardApp" ng-controller="BoardController">
@@ -56,7 +64,7 @@
 				<td>{{article.content}}</td>
 				<td>{{article.name}}</td>
 				<td>{{article.insertDateDt}}</td>
-				<td>{{article.fileSize | filtIsFile}}</td>
+				<td><img src="{{article.fileSize | filtIsFile}}" ng-if="article.fileSize > 0" /></td>
 			</tr>
 		</tbody>
 	</table>
