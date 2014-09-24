@@ -18,7 +18,7 @@ public class LoginServiceImplTest extends AbstractApplicationContextTest {
 	@Resource(name="LoginService")
 	private LoginService loginService;
 	
-	@Test
+//	@Test
 	public void test_validLogin() throws Exception {
 		HashMap<String,String> loginIdPw = new HashMap<String,String>();
 		loginIdPw.put("userId", "youniforever");

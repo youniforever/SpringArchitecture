@@ -24,7 +24,7 @@ public class BoardServiceImplTest extends AbstractApplicationContextTest {
 	@Value("${common.upload.dir}")
 	private String uploadDir;
 	
-	@Test
+//	@Test
 	public void getBoardList() throws Exception {
 		
 		List<BoardDto> boardDto = boardDao.getBoardList();
