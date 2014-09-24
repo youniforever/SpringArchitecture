@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.spring_arch.board.dao.BoardDao;
 import com.spring_arch.board.dto.BoardDto;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//RunWith(SpringJUnit4ClassRunner.class)
 public class BoardServiceImplTest extends AbstractApplicationContextTest {
 	
 	@Resource(name = "BoardDao")
@@ -24,7 +24,7 @@ public class BoardServiceImplTest extends AbstractApplicationContextTest {
 	@Value("${common.upload.dir}")
 	private String uploadDir;
 	
-//	@Test
+//	Test
 	public void getBoardList() throws Exception {
 		
 		List<BoardDto> boardDto = boardDao.getBoardList();
