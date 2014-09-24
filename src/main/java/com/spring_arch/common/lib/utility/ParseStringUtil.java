@@ -65,12 +65,12 @@ public class ParseStringUtil {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		Iterator iter = params.entrySet().iterator();
+		Iterator<?> iter = params.entrySet().iterator();
 		while (iter.hasNext()) {
 			if(sb.length() > 0){
 		          sb.append('&');
 		      }
-		    Entry entry = (Entry) iter.next();
+		    Entry<?, ?> entry = (Entry<?, ?>) iter.next();
 		    sb.append(entry.getKey()).append("=").append(entry.getValue());
 		}
 		
@@ -81,12 +81,12 @@ public class ParseStringUtil {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		Iterator iter = params.entrySet().iterator();
+		Iterator<?> iter = params.entrySet().iterator();
 		while (iter.hasNext()) {
 			if(sb.length() > 0){
 		          sb.append('&');
 		      }
-		    Entry entry = (Entry) iter.next();
+		    Entry<?, ?> entry = (Entry<?, ?>) iter.next();
 		    sb.append(entry.getKey()).append("=").append(entry.getValue());
 		}
 		

@@ -51,7 +51,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("ExcelUtil")
 public class ExcelUtil {
-    private static final Logger logger = LoggerFactory.getLogger(ExcelUtil.class);
+    @SuppressWarnings("unused")
+	private static final Logger logger = LoggerFactory.getLogger(ExcelUtil.class);
     
     public StringBuilder out;
     public SimpleDateFormat sdf;
@@ -141,7 +142,8 @@ public class ExcelUtil {
      * @param  파라미터명 파라미터 설명
      * @return 리턴 타입 (리턴이 없으면 생략)
      */
-    private void tr(final HSSFRow row) {
+    @SuppressWarnings("deprecation")
+	private void tr(final HSSFRow row) {
         if (row == null) return;
 
         out.append("<tr ");

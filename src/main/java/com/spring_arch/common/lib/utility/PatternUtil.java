@@ -51,11 +51,12 @@ public class PatternUtil {
 		return sourceMessage;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static String messageReplaceMap( HashMap <String, String> param, String source ) throws Exception {
 		
 		String source_temp = source;
 		
-		for ( Iterator iter = param.entrySet().iterator(); iter.hasNext();) {            
+		for ( Iterator<?> iter = param.entrySet().iterator(); iter.hasNext();) {            
 		    
 			Map.Entry entry = (Map.Entry) iter.next();                                        
 		    String  key = "#"+(String)entry.getKey()+"#";

@@ -27,10 +27,32 @@ import org.springframework.web.client.RestTemplate;
 @Repository("RestclientService")
 public class RestclientService {
 	
+	@SuppressWarnings("unused")
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Resource(name="RestTemplate")
 	private RestTemplate restTemplate;
+
+	@SuppressWarnings("unused")
+	private MediaType contentType;
+
+	@SuppressWarnings("unused")
+	private HttpEntity<String> entity;
+
+	@SuppressWarnings("unused")
+	private HttpEntity<String> entity2;
+
+	@SuppressWarnings("unused")
+	private MediaType contentType2;
+
+	@SuppressWarnings("unused")
+	private MediaType contentType3;
+
+	@SuppressWarnings("unused")
+	private HttpEntity<HashMap<String, ?>> entity3;
+
+	@SuppressWarnings("unused")
+	private HttpEntity<HashMap<String, ?>> entity4;
 	
 	/**
 	 * @Name restPost
@@ -48,11 +70,11 @@ public class RestclientService {
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 		((SimpleClientHttpRequestFactory)restTemplate.getRequestFactory()).setConnectTimeout(1000*timeout);
 
-		HttpEntity entity = new HttpEntity(params, headers);
+		HttpEntity<String> entity = new HttpEntity<String>(params, headers);
 		ResponseEntity<String> response_entity  = restTemplate.postForEntity( url, entity, String.class );
 		
 		String response = response_entity.getBody();
-		MediaType contentType = response_entity.getHeaders().getContentType();
+		contentType = response_entity.getHeaders().getContentType();
 		HttpStatus statusCode = response_entity.getStatusCode();
 
 		HashMap<String, String> responseData= new HashMap<String, String>();
@@ -79,7 +101,7 @@ public class RestclientService {
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 		((SimpleClientHttpRequestFactory) restTemplate.getRequestFactory()).setConnectTimeout(1000*timeout);
 		
-		HttpEntity entity = new HttpEntity(params, headers);
+		entity = new HttpEntity<String>(params, headers);
 		restTemplate.put(url, params);
 	}	
 	
@@ -101,7 +123,7 @@ public class RestclientService {
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 		((SimpleClientHttpRequestFactory) restTemplate.getRequestFactory()).setConnectTimeout(1000*timeout);
 		
-		HttpEntity entity = new HttpEntity(params, headers);
+		entity2 = new HttpEntity<String>(params, headers);
 		restTemplate.put(url, params, urlVariables);
 	}	
 	
@@ -121,11 +143,11 @@ public class RestclientService {
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 		((SimpleClientHttpRequestFactory) restTemplate.getRequestFactory()).setConnectTimeout(1000*timeout);
 		
-		HttpEntity entity = new HttpEntity(params, headers);
+		HttpEntity<String> entity = new HttpEntity<String>(params, headers);
 		ResponseEntity<String> response_entity  = restTemplate.exchange(url, org.springframework.http.HttpMethod.PUT, entity, String.class );
 		
 		String response = response_entity.getBody();
-		MediaType contentType = response_entity.getHeaders().getContentType();
+		contentType2 = response_entity.getHeaders().getContentType();
 		String statusCode = response_entity.getStatusCode().toString();
 
 		HashMap<String, String> responseData= new HashMap<String, String>();
@@ -145,17 +167,17 @@ public class RestclientService {
 	 * @param int timeout ( second )
 	 * @Description REST 전송중 POST 방식으로 데이터 전송하고 응답데이터와 상태코드를 HashMap으로 리턴함 ( response, status )
 	 */	
-	public HashMap<String, String> restGet( String url, HashMap params, int timeout ) throws Exception {
+	public HashMap<String, String> restGet( String url, HashMap<String, ?> params, int timeout ) throws Exception {
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 		((SimpleClientHttpRequestFactory)restTemplate.getRequestFactory()).setConnectTimeout(1000*timeout);
 		
-		HttpEntity entity = new HttpEntity(params, headers);
+		entity3 = new HttpEntity<HashMap<String, ?>>(params, headers);
 		ResponseEntity<String> response_entity = restTemplate.getForEntity(url, String.class, params );
 		
 		String response = response_entity.getBody();
-		MediaType contentType = response_entity.getHeaders().getContentType();
+		contentType3 = response_entity.getHeaders().getContentType();
 		HttpStatus statusCode = response_entity.getStatusCode();
 
 		HashMap<String, String> responseData= new HashMap<String, String>();
@@ -175,13 +197,13 @@ public class RestclientService {
 	 * @param int timeout ( second )
 	 * @Description REST 전송중 DELETE 방식으로 데이터 전송함. 리턴은 VOID
 	 */		
-	public void restDelete( String url, HashMap params, int timeout ) throws Exception {
+	public void restDelete( String url, HashMap<String, ?> params, int timeout ) throws Exception {
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 		((SimpleClientHttpRequestFactory)restTemplate.getRequestFactory()).setConnectTimeout(1000*timeout);
 		
-		HttpEntity entity = new HttpEntity(params, headers);
+		entity4 = new HttpEntity<HashMap<String, ?>>(params, headers);
 		restTemplate.delete(url, params );
 		
 	}
