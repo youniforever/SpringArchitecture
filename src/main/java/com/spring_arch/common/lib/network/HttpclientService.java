@@ -26,6 +26,7 @@ import com.spring_arch.common.lib.utility.ParseStringUtil;
 @Repository("HttpclientService")
 public class HttpclientService {
 	
+	@SuppressWarnings("unused")
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	/**
@@ -122,9 +123,9 @@ public class HttpclientService {
 		// 인코딩 설정 
 		method.setRequestHeader("Content-Type", encodeString);
 		
-		Iterator iter = params.entrySet().iterator();
+		Iterator<?> iter = params.entrySet().iterator();
 		while (iter.hasNext()) {
-			Entry entry = (Entry) iter.next();
+			Entry<?, ?> entry = (Entry<?, ?>) iter.next();
 			method.addParameter((String) entry.getKey(), String.valueOf(entry.getValue()));
 		}
 		
