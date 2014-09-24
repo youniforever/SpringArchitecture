@@ -139,13 +139,6 @@
 
 
 
-		<!-- Apache Log4j 1.2 -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
-		</dependency>
-
 		<!-- AspectJ -->
 		<dependency><!-- The runtime needed to execute a program using AspectJ -->
 			<groupId>org.aspectj</groupId>
