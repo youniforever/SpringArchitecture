@@ -1,11 +1,13 @@
 package com.spring_arch.common.lib.utility;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 public class XmlResponseUtil {
+	@Autowired
 	private Logger logger = Logger.getLogger (this.getClass());
 	
 	public ResponseEntity<String> getXMLResponse(Object obj) throws Exception {
